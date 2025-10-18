@@ -19,9 +19,13 @@ spring:
 
 logging:
   level:
-    org:
-      springframework:
-        security=DEBUG:
+    root: info
+    org.springframework: warn
+    org.hibernate: error
+    com.pos: debug
+  pattern:
+    console: "%d{HH:mm:ss} %-5level [%logger{36}] - %msg%n"
+
 
 jwt:
   secret: "VExzN0s2V3p5R2Q1eXJzM29IVG95MFRhUG5nMUFzV1pCenFhWkYxclR0T29rUjJvT3pYckQ0UHVtN09uSjlSNEQxQ0FpY1BicHlCbmJsdmE1c293M01LQXlKMGZ5MXU="
