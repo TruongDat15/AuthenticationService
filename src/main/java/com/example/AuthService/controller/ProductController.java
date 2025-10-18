@@ -19,12 +19,12 @@ public class ProductController {
 
     private final ProductsRepository productsRepository;
 
+    @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @GetMapping
     public List<Product> getAllProducts() {
         return productsRepository.findAll();
     }
-
-
+    
     @GetMapping("/hello")
     public String helloAdmin() {
         var authentication =  org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication();
