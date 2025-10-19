@@ -5,6 +5,7 @@ import com.example.AuthService.repository.ProductsRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class ProductController {
     
     @GetMapping("/hello")
     public String helloAdmin() {
-        var authentication =  org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication();
+        Authentication authentication =  org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication();
         log.info("Authenticated user: {}", authentication.getName());
         authentication.getAuthorities().forEach(authority ->
                 log.info("Authority: {}", authority.getAuthority())

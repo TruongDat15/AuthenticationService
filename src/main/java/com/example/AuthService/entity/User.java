@@ -53,6 +53,21 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    private String fullName;
+
+    private String email;
+
+    private String phoneNumber;
+
+    private String address;
+
+    private String gender;
+
+    private String dateOfBirth;
+
     @Column(name = "role")
     private String role; // ví dụ: ROLE_USER, ROLE_ADMIN
+
+    @Column(nullable = false)
+    private boolean isUpdatedProfile = false;
 }
